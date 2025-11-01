@@ -1,0 +1,74 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+  background: #0d0d0d;
+  border-bottom: 1px solid #222;
+  position: relative;
+}
+
+.logo {
+  font-size: 1.3rem;
+  letter-spacing: 3px;
+  color: #fff;
+}
+
+/* Desktop nav */
+.header-right {
+  margin-right: 2rem; /* 🆕 pushes links slightly left */
+}
+
+.header-right a {
+  margin-left: 2rem;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.2s ease;
+}
+
+.header-right a:hover {
+  color: #aaa;
+}
+
+/* Mobile menu button */
+.menu-button {
+  display: none;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .menu-button {
+    display: block;
+  }
+
+  .header-right {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    right: 0;
+    left: 0;
+    background: #0d0d0d;
+    border-top: 1px solid #222;
+    text-align: center;
+    padding: 1rem 0;
+    gap: 1rem;
+    z-index: 9999;
+    border-radius: 0 0 4px 4px; /* 🆕 subtle polish */
+  }
+
+  .header-right.open {
+    display: flex;
+  }
+
+  .header-right a {
+    margin: 0.8rem 0;
+    font-size: 1.1rem;
+  }
+}

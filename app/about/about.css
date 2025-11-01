@@ -1,0 +1,70 @@
+.about-page {
+  background-color: #0d0d0d;
+  color: #fff;
+  min-height: 100vh;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  padding: 2rem;
+}
+
+/* About text section */
+.about-section {
+  max-width: 750px;
+  margin: 50px auto;
+  font-size: 1.15rem; /* slightly smaller for better readability */
+  line-height: 1.8; /* more spacing between lines */
+  color: #ccc; /* softer than pure white for less strain */
+  background-color: #121212; /* subtle card-like background */
+  padding: 2rem 2.5rem; /* internal padding for better spacing */
+  border-radius: 8px; /* soft rounded corners */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* subtle depth */
+}
+@media (max-width: 768px) {
+  .about-section {
+    padding: 1.5rem 1.5rem;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+}
+
+.about-text {
+  letter-spacing: 0.5px;
+  text-align: justify;
+}
+
+/* Team section */
+.team-section {
+  max-width: 1300px;
+  margin: 4rem auto;
+  text-align: center;
+}
+
+.team-section h2 {
+  font-size: 1rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #222;
+  display: inline-block;
+  padding-bottom: 0.5rem;
+  color: #fff;
+}
+
+/* Team grid */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 2rem;
+}
+
+/* Member styling (wrapper) */
+.team-grid .member-card {
+  background-color: #1a1a1a;
+  padding: 1rem;
+  border-radius: 8px;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.team-grid .member-card:hover {
+  transform: translateY(-4px);
+  background-color: #222;
+}

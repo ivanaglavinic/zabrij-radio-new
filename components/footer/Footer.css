@@ -1,0 +1,27 @@
+.footer {
+  width: 100%;
+  padding: 1rem 0;
+  background-color: #0d0d0d;
+  color: #888;
+  font-size: 0.85rem;
+  text-align: center;
+  letter-spacing: 1px;
+  border-top: 1px solid #222;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.footer .main {
+  font-weight: 400;
+  color: #aaa; /* slightly brighter for visibility */
+  font-size: 0.85rem;
+}
+
+.footer .credit {
+  font-size: 0.7rem;
+  color: #555; /* subtle professional */
+  font-weight: 400;
+  letter-spacing: 1px;
+}

@@ -1,0 +1,169 @@
+.radio-header-button {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  gap: 0.5rem;
+}
+
+.live-text {
+  color: rgb(194, 98, 47); /* NTS-style “LIVE” indicator */
+  font-weight: bold;
+  font-size: 0.85rem;
+}
+
+.play-pause-button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.play-pause-icon {
+  display: block;
+}
+
+/* Player container */
+.live-radio-player {
+  margin: 0 auto;
+  width: 100%;
+  padding: 1rem;
+  overflow-x: hidden;
+  color: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.player-content {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  overflow-x: hidden;
+}
+
+.player-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.player-icon {
+  width: 40px;
+  height: 40px;
+}
+
+.player-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  flex: 1;
+  min-width: 0;
+  position: relative;
+}
+
+.station-name {
+  font-size: 0.85rem;
+  color: red;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.2rem;
+}
+
+.track-info {
+  font-size: 0.95rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  letter-spacing: 0.02em;
+  line-height: 1.3;
+}
+
+/* -------------------------------
+   🔹 Slide animation for track text (mobile + tablet)
+----------------------------------*/
+@keyframes slideTrack {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@media (max-width: 1024px) {
+  .player-info {
+    overflow: hidden;
+  }
+
+  .track-info {
+    display: inline-block;
+    animation: slideTrack 12s linear infinite;
+    will-change: transform;
+  }
+
+  /* Optional: pause when tapped/hovered */
+  .track-info:hover {
+    animation-play-state: paused;
+  }
+}
+
+/* -------------------------------
+   Responsive adjustments
+----------------------------------*/
+
+/* Tablets */
+@media (max-width: 768px) {
+  .live-radio-player {
+    width: 100%;
+    max-width: 100%;
+    padding: 0.8rem;
+    margin: 0;
+    overflow-x: hidden;
+  }
+
+  .player-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .track-info {
+    font-size: 0.9rem;
+  }
+}
+
+/* Mobile phones */
+@media (max-width: 480px) {
+  .live-radio-player {
+    width: 93%;
+    max-width: 100%;
+    padding: 0.8rem;
+    margin: 0;
+    overflow-x: hidden;
+  }
+
+  .player-content {
+    flex-direction: row;
+    gap: 0.5rem;
+  }
+
+  .player-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .track-info {
+    font-size: 0.85rem;
+  }
+
+  .station-name {
+    font-size: 0.8rem;
+  }
+}
