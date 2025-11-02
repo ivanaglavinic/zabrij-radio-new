@@ -1,0 +1,85 @@
+/* Container styling */
+.thank-you-page {
+  display: flex;
+  margin-top: 8rem;
+  justify-content: center;
+  color: #ffffff;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-align: center;
+  padding: 2rem;
+}
+
+/* Inner content box */
+.thank-you-container {
+  width: 100%;
+  max-width: 500px;
+  background: #2b2b2b;
+  padding: 3rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Big checkmark for success */
+.checkmark {
+  font-size: 4rem;
+  color: #ffffff; /* changed to white */
+  margin-bottom: 1rem;
+  animation: pop 0.5s ease-out;
+}
+
+/* Headings */
+h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+/* Paragraph text */
+p {
+  font-size: 1rem;
+  color: #ccc;
+  margin-bottom: 1rem;
+}
+
+/* Radio sign-off */
+.radio-signoff {
+  font-size: 0.9rem;
+  color: #ffffff; /* changed to white */
+  margin-top: 1.5rem;
+  font-style: italic;
+}
+
+/* Pop animation for checkmark */
+@keyframes pop {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  80% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@media screen (max-width: 768px) {
+}
+
+.thank-you-container {
+  padding: 2rem;
+}
+
+h1 {
+  font-size: 1.5rem;
+}
+
+p {
+  font-size: 0.9rem;
+}
