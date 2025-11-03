@@ -1,7 +1,8 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
+
 import "./Radio.css"; // merged CSS
 
 export const Radio = () => {
@@ -108,7 +109,7 @@ export const Radio = () => {
           className="player-toggle"
           onClick={() => setIsPlaying(!isPlaying)}
         >
-          <Image
+          <img
             src={isPlaying ? "/images/pause.png" : "/images/play.png"}
             alt={isPlaying ? "Pause" : "Play"}
             width={32}

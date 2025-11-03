@@ -1,7 +1,8 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import React, { useState, useEffect } from "react";
-import Image from "next/image";
+
 import "./mixcloud.css";
 
 type Upload = {
@@ -175,7 +176,7 @@ const MixcloudCard = ({
   return (
     <div className="card">
       <div className="imageWrapper">
-        <Image
+        <img
           src={upload.picture}
           alt={upload.title}
           width={600}

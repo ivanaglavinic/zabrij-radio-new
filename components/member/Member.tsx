@@ -1,7 +1,8 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import React from "react";
-import Image from "next/image";
+
 import "./member.css";
 
 type MemberProps = {
@@ -19,7 +20,7 @@ export const Member = ({ name, instagram, image }: MemberProps) => {
       rel="noopener noreferrer"
     >
       <div className="member-image">
-        <Image
+        <img
           src={image || "/placeholder-profile.png"}
           alt={name}
           width={200}

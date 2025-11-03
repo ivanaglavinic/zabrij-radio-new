@@ -1,10 +1,10 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import "./Header.css";
 import { Radio } from "../radio/Radio";
-import Image from "next/image";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,11 +22,11 @@ export default function Header() {
     <header className="header">
       <div className="header-left">
         <Link href="/">
-          <Image
-            src="/images/bird.png" // place your logo here in public/images/
+          <img
+            src="/images/bird.png"
             alt="Zabrij Radio Logo"
-            width={70} // adjust width
-            height={70} // adjust height
+            width={70}
+            height={70}
           />
         </Link>
       </div>
@@ -43,13 +43,13 @@ export default function Header() {
         <Link href="/" onClick={() => setIsOpen(false)}>
           HOME
         </Link>
-        <Link href="/archive" onClick={() => setIsOpen(false)}>
+        <Link href="/archive.html" onClick={() => setIsOpen(false)}>
           ARCHIVE
         </Link>
-        <Link href="/about" onClick={() => setIsOpen(false)}>
+        <Link href="/about.html" onClick={() => setIsOpen(false)}>
           ABOUT
         </Link>
-        <Link href="/contact" onClick={() => setIsOpen(false)}>
+        <Link href="/contact.html" onClick={() => setIsOpen(false)}>
           CONTACT
         </Link>
       </nav>
