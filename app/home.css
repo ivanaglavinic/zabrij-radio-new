@@ -16,7 +16,9 @@
 .home-hero {
   position: relative;
   width: 100%;
-  flex: 1; /* takes all remaining vertical space */
+  flex: 1; /* takes remaining vertical space on desktop */
+  height: 60vh; /* fallback height for mobile */
+  max-height: 80vh; /* optional max height */
 }
 
 /* hero image fills hero container */
@@ -45,8 +47,11 @@
 
 /* mobile/tablet adjustments */
 @media (max-width: 768px) {
+  .home-hero {
+    height: 50vh; /* smaller hero on mobile */
+  }
   .home-hero-image {
-    object-position: 23% center;
+    object-position: top center; /* show top of image */
   }
 }
 

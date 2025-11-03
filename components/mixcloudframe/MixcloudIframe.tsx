@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import "./MixcloudIframe.css";
 
 type Props = {
   trackKey: string;
@@ -16,12 +17,8 @@ declare global {
 
 interface MixcloudWidget {
   events?: {
-    play?: {
-      on: (callback: () => void) => void;
-    };
-    pause?: {
-      on: (callback: () => void) => void;
-    };
+    play?: { on: (callback: () => void) => void };
+    pause?: { on: (callback: () => void) => void };
   };
 }
 
@@ -32,7 +29,6 @@ export const MixcloudIframe = ({ trackKey }: Props) => {
     const iframe = iframeRef.current;
     if (!iframe) return;
 
-    // 1. Load Mixcloud script if not already loaded
     if (
       !document.querySelector(
         'script[src="https://widget.mixcloud.com/media/js/widgetApi.js"]'
@@ -44,13 +40,11 @@ export const MixcloudIframe = ({ trackKey }: Props) => {
       document.body.appendChild(script);
     }
 
-    // 2. Wait for iframe to load
     const handleLoad = () => {
       if (!iframe || !window.Mixcloud) return;
 
       const widget = window.Mixcloud.PlayerWidget(iframe);
 
-      // Poll until events exist
       const interval = setInterval(() => {
         if (widget.events?.play && widget.events?.pause) {
           widget.events.play.on(() =>
@@ -65,22 +59,21 @@ export const MixcloudIframe = ({ trackKey }: Props) => {
     };
 
     iframe.addEventListener("load", handleLoad);
-
-    return () => {
-      iframe.removeEventListener("load", handleLoad);
-    };
+    return () => iframe.removeEventListener("load", handleLoad);
   }, [trackKey]);
 
   return (
-    <iframe
-      ref={iframeRef}
-      width="100%"
-      height="120"
-      src={`https://www.mixcloud.com/widget/iframe/?feed=${encodeURIComponent(
-        trackKey
-      )}&autoplay=1`}
-      frameBorder="0"
-      allow="autoplay"
-    ></iframe>
+    <div className="mixcloud-player-wrapper">
+      <iframe
+        ref={iframeRef}
+        src={`https://www.mixcloud.com/widget/iframe/?feed=${encodeURIComponent(
+          trackKey
+        )}&hide_cover=1&light=0&mini=0`}
+        frameBorder="0"
+        allow="autoplay"
+        className="mixcloud-player"
+        title="Mixcloud Player"
+      ></iframe>
+    </div>
   );
 };

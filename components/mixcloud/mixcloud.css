@@ -150,7 +150,7 @@
 
 /* -------------------------------
    Player section
----------------------------------*/
+---------------------------------
 .player {
   position: fixed;
   bottom: 0;
@@ -160,7 +160,7 @@
   border-top: 1px solid #222;
   padding: 0.5rem;
   z-index: 100;
-}
+}*/
 
 /* -------------------------------
    Load More section
@@ -168,6 +168,7 @@
 .load-more-wrapper {
   text-align: center;
   margin-top: 3rem;
+  margin-bottom: 3rem;
 }
 
 .load-more-btn {

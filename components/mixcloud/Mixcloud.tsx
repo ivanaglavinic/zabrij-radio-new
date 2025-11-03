@@ -2,7 +2,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-
+import { MixcloudIframe } from "../mixcloudframe/MixcloudIframe"; // Import the reusable iframe component
 import "./mixcloud.css";
 
 type Upload = {
@@ -40,7 +40,7 @@ export const Mixcloud = () => {
   const limit = 14;
   const baseUrl = `https://api.mixcloud.com/${username}/cloudcasts/?limit=${limit}`;
 
-  // 🔹 Fetch a single page (for pagination)
+  // Fetch a single page (pagination)
   const fetchUploadsPage = async (url: string) => {
     setLoading(true);
     try {
@@ -64,7 +64,7 @@ export const Mixcloud = () => {
     }
   };
 
-  // 🔹 Fetch all tracks for search (background)
+  // Fetch all tracks for search
   const fetchAllUploads = async () => {
     let url: string | null = `https://api.mixcloud.com/${username}/cloudcasts/`;
     let all: Upload[] = [];
@@ -92,16 +92,16 @@ export const Mixcloud = () => {
     }
   };
 
-  // 🔹 Load first page and fetch all tracks in background
+  // Load first page and fetch all tracks in background
   useEffect(() => {
     fetchUploadsPage(baseUrl);
     fetchAllUploads();
   }, [baseUrl]);
 
-  // 🔹 Filter tracks
+  // Filter tracks
   useEffect(() => {
     if (!searchQuery.trim()) {
-      setFilteredUploads(uploads); // show paginated tracks
+      setFilteredUploads(uploads);
     } else {
       const query = searchQuery.toLowerCase();
       setFilteredUploads(
@@ -120,7 +120,7 @@ export const Mixcloud = () => {
     <div className="container">
       <h2 className="mixcloud-title">ARCHIVE</h2>
 
-      {/* 🔹 Search input */}
+      {/* Search input */}
       <div className="search-wrapper">
         <input
           type="text"
@@ -131,7 +131,7 @@ export const Mixcloud = () => {
         />
       </div>
 
-      {/* 🔹 Tracks grid */}
+      {/* Tracks grid */}
       <div className="grid">
         {filteredUploads.map((upload, index) => (
           <MixcloudCard
@@ -142,7 +142,7 @@ export const Mixcloud = () => {
         ))}
       </div>
 
-      {/* 🔹 Load More button */}
+      {/* Load More button */}
       {nextPage && !searchQuery && (
         <div className="load-more-wrapper">
           <button
@@ -155,7 +155,7 @@ export const Mixcloud = () => {
         </div>
       )}
 
-      {/* 🔹 Player */}
+      {/* Player */}
       {currentTrack && (
         <div className="player">
           <MixcloudIframe trackKey={currentTrack.key} />
@@ -165,7 +165,7 @@ export const Mixcloud = () => {
   );
 };
 
-// 🎵 Single Mix Card
+// Single Mix Card
 const MixcloudCard = ({
   upload,
   onPlay,
@@ -190,23 +190,5 @@ const MixcloudCard = ({
       <h3 className="title">{upload.title}</h3>
       <p className="date">{new Date(upload.date).toLocaleDateString()}</p>
     </div>
-  );
-};
-
-const MixcloudIframe = ({ trackKey }: { trackKey: string }) => {
-  const src = `https://www.mixcloud.com/widget/iframe/?hide_cover=1&mini=1&light=1&feed=${encodeURIComponent(
-    trackKey
-  )}`;
-
-  return (
-    <iframe
-      title="Mixcloud Player"
-      width="100%"
-      height={120}
-      src={src}
-      frameBorder={0}
-      allow="autoplay; encrypted-media"
-      loading="lazy"
-    />
   );
 };
