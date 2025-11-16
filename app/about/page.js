@@ -8,17 +8,17 @@ export default function About() {
     <div>
       <section className="about-section">
         <p className="about-text">
-          Zabrij radio nastao je iz potrebe da se u Zagrebu stvori community
-          radio, po uzoru na druge europske internetske radije, kojima profit
-          nije na prvom mjestu, već zajednica.
+          Zabrij Radio was created out of the need to establish a community
+          radio in Zagreb, inspired by other European internet radios where
+          profit is not the priority, but the community is.
           <br />
-          Želimo imati platformu na kojoj je svatko dobrodošao i gdje svi
-          umjetnički izražaji imaju svoj dom. Kao veliki zagovornici društvene
-          odgovornosti, zalažemo se za inkluzivnost i pluralizam.
+          We want to have a platform where everyone is welcome and where all
+          forms of artistic expression have a home. As strong advocates of
+          social responsibility, we promote inclusivity and pluralism.
           <br />
-          Sadržaj koji emitiramo odražava naše stavove o propitkivanju
-          ustaljenih normi i zadanih obrazaca. Ne postoji samo jedan način
-          postojanja – na Zabrij radiju slavimo različitosti.
+          The content we broadcast reflects our views on questioning established
+          norms and prescribed patterns. There is not just one way of existing —
+          at Zabrij Radio, we celebrate diversity.
         </p>
       </section>
 
